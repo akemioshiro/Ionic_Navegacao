@@ -22,3 +22,35 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+.config(function($stateProvider,$urlRouterProvider){
+  $stateProvider
+
+  .state('app',{
+    url:'/app',
+    abstract: true, // vai ser o modelo
+    templateUrl:'templates/layout.html'
+  })
+
+  .state('app.home',{
+    url:'/home',
+    views:{
+      'layoutContent':{
+        templateUrl:'templates/home.html'
+      }
+    }
+    
+  })
+  .state('app.sobre',{
+    url:'/sobre',
+    views:{
+      'layoutContent':{
+        templateUrl:'templates/sobre.html'
+      }
+    }
+  });
+
+  $urlRouterProvider.otherwise('/app/home');
+
+})
+
